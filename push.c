@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * push_t - Pushes a new element onto a stack_t stack (doubly linked list)

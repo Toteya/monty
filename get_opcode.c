@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 int opcode_valid(char *str);
 int is_numeric(char *str);

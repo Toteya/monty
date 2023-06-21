@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 
 /**
  * pall_t - Displays / prints all the elements of a stack_t stack

@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
@@ -40,8 +40,32 @@ int main(int ac, char **av)
 			i++;
 		}
 		instructs[i].f(&top, atoi(op_arg[1]));
+		free(line);
+		free_str_arr(op_arg);
 		i = 0;
 	}
+	free_t(top);
 
 	return (EXIT_SUCCESS);
+}
+
+/**
+ * free_str_arr - Frees memory from an array of strings
+ * @strv: The string vector/array to be freed
+ *
+ * Return: Nothing.
+ */
+void free_str_arr(char **strv)
+{
+	unsigned int i = 0;
+
+	if (!strv)
+		return;
+
+	while (i < 2 && strcmp(strv[i], ""))
+	{
+		free(strv[i]);
+		i++;
+	}
+	free(strv);
 }

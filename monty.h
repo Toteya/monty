@@ -43,6 +43,8 @@ void push_t(stack_t **top, int n);
 void pall_t(stack_t **top, int arg);
 char *next_line(char *filename);
 char **get_opcode(char *line, unsigned int line_nr);
+void free_t(stack_t *top);
+void free_str_arr(char **argv);
 
 /* Global Variables // Externs */
 
