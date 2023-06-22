@@ -41,6 +41,7 @@ typedef struct instruction_s
 /* Function Prototypes */
 void push_t(stack_t **top, int n);
 void pall_t(stack_t **top, int arg);
+void pint_t(stack_t **top, int arg);
 char *next_line(char *filename);
 char **get_opcode(char *line, unsigned int line_nr);
 void free_t(stack_t *top);
