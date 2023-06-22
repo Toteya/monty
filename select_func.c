@@ -18,6 +18,7 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		{"pall", pall_t},
 		{"pop", pop_t},
 		{"swap", swap_t},
+		{"add", add_t},
 		{NULL, NULL}
 	};
 

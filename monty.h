@@ -59,6 +59,7 @@ void pall_t(stack_t **top, unsigned int line_nr);
 void pint_t(stack_t **top, unsigned int line_nr);
 void pop_t(stack_t **top, unsigned int line_nr);
 void swap_t(stack_t **top, unsigned int line_nr);
+void add_t(stack_t **top, unsigned int line_nr);
 
 char *next_line(char *filename, int p);
 void free_t(stack_t *top);
