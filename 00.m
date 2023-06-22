@@ -1,4 +1,4 @@
 push 1
-push 2
+prr x
 push 3
 pall

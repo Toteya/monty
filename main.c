@@ -10,39 +10,35 @@
  */
 int main(int ac, char **av)
 {
-	instruction_t instructs[] = {
-		{"push", push_t},
-		{"pall", pall_t},
-		{NULL, NULL}
-	};
-	char *filename, *line, **op_arg;
-	unsigned int line_nr = 0, i = 0;
-	stack_t *top;
-
-	top = NULL;
+	char *filename, *line;
+	unsigned int line_nr = 0;
+	stack_t *top = NULL;
+	op_arg_t *op_arg = NULL;
+	int status = 0;
 
 	if (ac != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	filename = av[1];
 
 	while ((line = next_line(filename)) != NULL)
 	{
 		line_nr++;
-		op_arg = get_opcode(line, line_nr);
-		while (instructs[i].opcode != NULL)
+		op_arg = get_opcode(line);
+
+		status = select_func(&top, op_arg, line_nr);
+		if (status != 0)
 		{
-			if (strcmp(op_arg[0], instructs[i].opcode) == 0)
-				break;
-			i++;
+			print_err(status, line_nr);
+			free(line);
+			free_oparg(op_arg);
+			free(top);
+			exit(EXIT_FAILURE);
 		}
-		instructs[i].f(&top, atoi(op_arg[1]));
 		free(line);
-		free_str_arr(op_arg);
-		i = 0;
+		free_oparg(op_arg);
 	}
 	free_t(top);
 
@@ -50,22 +46,22 @@ int main(int ac, char **av)
 }
 
 /**
- * free_str_arr - Frees memory from an array of strings
- * @strv: The string vector/array to be freed
+ * print_err - Prints a message to STDERR corresponding to the status code
+ * @status: Integer status code
+ * @line_nr: The current line number of the monty bytecode
  *
  * Return: Nothing.
  */
-void free_str_arr(char **strv)
+void print_err(int status, unsigned int line_nr)
 {
-	unsigned int i = 0;
-
-	if (!strv)
-		return;
-
-	while (i < 2 && strcmp(strv[i], ""))
+	switch (status)
 	{
-		free(strv[i]);
-		i++;
+		case 1:
+			fprintf(stderr, "L%u: usage: push integer\n", line_nr);
+			break;
+		case 2:
+			fprintf(stderr, "L%u: unknown instruction <opcode>\n", line_nr);
+			break;
 	}
-	free(strv);
 }
+

@@ -32,7 +32,7 @@ char *next_line(char *filename)
 		return (NULL);
 	}
 
-	buff = malloc(sizeof(char) * len);
+	buff = malloc(sizeof(char) * len + 1);
 	if (buff == NULL)
 		exit(EXIT_FAILURE);
 

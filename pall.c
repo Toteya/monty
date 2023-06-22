@@ -3,16 +3,16 @@
 /**
  * pall_t - Displays / prints all the elements of a stack_t stack
  * @top: Pointer to the top node of the stack
- * @arg: Unused variable, needed to keep function prototypes consistent
+ * @line_nr: Current line number of the montu bytecode
  *
  * Return: Nothing
  */
-void pall_t(stack_t **top, int arg)
+void pall_t(stack_t **top, unsigned int line_nr)
 {
 	stack_t *p;
-	(void) arg;
+	(void) line_nr;
 
-	if (!top)
+	if (top == NULL)
 		return;
 
 	p = *top;

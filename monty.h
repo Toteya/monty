@@ -35,17 +35,37 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, int arg);
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**
+ * struct op_arg_s - opcode and argument
+ * @opcode - The (supposed) opcode
+ * @arg - The argument to the opcode
+ *
+ * Description: An opcode and its argument read from
+ * a monty bytecode file
+ */
+typedef struct op_arg_s
+{
+	char *opcode;
+	char *arg;
+} op_arg_t;
+
 
 /* Function Prototypes */
 void push_t(stack_t **top, int n);
-void pall_t(stack_t **top, int arg);
-void pint_t(stack_t **top, int arg);
+void pall_t(stack_t **top, unsigned int line_nr);
+void pint_t(stack_t **top, unsigned int line_nr);
+
 char *next_line(char *filename);
-char **get_opcode(char *line, unsigned int line_nr);
 void free_t(stack_t *top);
-void free_str_arr(char **argv);
+void free_oparg(op_arg_t *op_arg);
+char *_strdup(char *str);
+op_arg_t *get_opcode(char *line);
+int is_numeric(char *str);
+int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr);
+void print_err(int status, unsigned int line_nr);
 
 /* Global Variables // Externs */
 
