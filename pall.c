@@ -7,13 +7,13 @@
  *
  * Return: Nothing
  */
-void pall_t(stack_t **top, unsigned int line_nr)
+int pall_t(stack_t **top, unsigned int line_nr)
 {
 	stack_t *p;
 	(void) line_nr;
 
 	if (top == NULL)
-		return;
+		return (0);
 
 	p = *top;
 
@@ -22,4 +22,6 @@ void pall_t(stack_t **top, unsigned int line_nr)
 		printf("%d\n", p->n);
 		p = p->prev;
 	}
+
+	return (0);
 }

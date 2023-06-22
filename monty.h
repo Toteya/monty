@@ -35,7 +35,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	int (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -55,12 +55,12 @@ typedef struct op_arg_s
 
 /* Function Prototypes */
 void push_t(stack_t **top, int n);
-void pall_t(stack_t **top, unsigned int line_nr);
-void pint_t(stack_t **top, unsigned int line_nr);
-void pop_t(stack_t **top, unsigned int line_nr);
-void swap_t(stack_t **top, unsigned int line_nr);
-void add_t(stack_t **top, unsigned int line_nr);
-void nop_t(stack_t **top, unsigned int line_nr);
+int pall_t(stack_t **top, unsigned int line_nr);
+int pint_t(stack_t **top, unsigned int line_nr);
+int pop_t(stack_t **top, unsigned int line_nr);
+int swap_t(stack_t **top, unsigned int line_nr);
+int add_t(stack_t **top, unsigned int line_nr);
+int nop_t(stack_t **top, unsigned int line_nr);
 
 char *next_line(char *filename, int p);
 void free_t(stack_t *top);

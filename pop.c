@@ -7,19 +7,19 @@
  *
  * Return: Nothing.
  */
-void pop_t(stack_t **top, unsigned int line_nr)
+int pop_t(stack_t **top, unsigned int line_nr)
 {
 	stack_t *p;
+	(void) line_nr;
 
 	if (*top == NULL)
-	{
-		fprintf(stderr, "L%u: can't pop an empty stack\n", line_nr);
-		exit(EXIT_FAILURE);
-	}
+		return (12);
 
 	p = *top;
 	*top = (*top)->prev;
 	if (*top != NULL)
 		(*top)->next = NULL;
 	free(p);
+
+	return (0);
 }

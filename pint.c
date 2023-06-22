@@ -7,15 +7,13 @@
  *
  * Return: Nothing
  */
-void pint_t(stack_t **top, unsigned int line_nr)
+int pint_t(stack_t **top, unsigned int line_nr)
 {
-	if (*top != NULL)
-	{
-		printf("%d\n", (*top)->n);
-	}
-	else
-	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_nr);
-		exit(EXIT_FAILURE);
-	}
+	(void) line_nr;
+
+	if (*top == NULL)
+		return (11);
+
+	printf("%d\n", (*top)->n);
+	return (0);
 }

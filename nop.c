@@ -7,9 +7,10 @@
  *
  * Return: Nothing
  */
-void nop_t(stack_t **top, unsigned int line_nr)
+int nop_t(stack_t **top, unsigned int line_nr)
 {
 	(void) top;
 	(void) line_nr;
 
+	return (0);
 }

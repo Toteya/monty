@@ -36,8 +36,7 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		{
 			if (strcmp(op_arg->opcode, instructs[i].opcode) == 0)
 			{
-				instructs[i].f(top, line_nr);
-				break;
+				return (instructs[i].f(top, line_nr));
 			}
 		}
 		if (instructs[i].opcode == NULL)
