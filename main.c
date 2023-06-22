@@ -23,7 +23,7 @@ int main(int ac, char **av)
 	}
 	filename = av[1];
 
-	while ((line = next_line(filename)) != NULL)
+	while ((line = next_line(filename, 0)) != NULL)
 	{
 		line_nr++;
 		op_arg = get_opcode(line);
@@ -32,6 +32,7 @@ int main(int ac, char **av)
 		if (status != 0)
 		{
 			print_err(status, line_nr);
+			next_line(filename, 1); /* close the open files */
 			free(line);
 			free_oparg(op_arg);
 			free(top);

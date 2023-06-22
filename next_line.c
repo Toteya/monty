@@ -4,15 +4,17 @@
 /**
  * next_line - Reads the next line of a monty bytecode file
  * @filename: The filename of the file containing the bytecode
+ * @p: flag to close the file. 0 to keep it open, 1 to close.
  *
  * Return: A string buffer containing the next line read from the file.
  */
-char *next_line(char *filename)
+char *next_line(char *filename, int p)
 {
 	char c1, c2, *buff;
 	/* char *filename = "file.txt"; */
 	static FILE *fp1, *fp2;
 	size_t len = 0, i = 0;
+
 
 	if (fp1 == NULL)
 		fp1 = fopen(filename, "r");
@@ -25,7 +27,7 @@ char *next_line(char *filename)
 			break;
 		len++;
 	}
-	if (c1 == EOF)
+	if (c1 == EOF || p == 1)
 	{
 		fclose(fp1);
 		fclose(fp2);

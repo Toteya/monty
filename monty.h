@@ -58,7 +58,7 @@ void push_t(stack_t **top, int n);
 void pall_t(stack_t **top, unsigned int line_nr);
 void pint_t(stack_t **top, unsigned int line_nr);
 
-char *next_line(char *filename);
+char *next_line(char *filename, int p);
 void free_t(stack_t *top);
 void free_oparg(op_arg_t *op_arg);
 char *_strdup(char *str);
