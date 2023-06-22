@@ -16,6 +16,7 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 	instruction_t instructs[] = {
 		{"pint", pint_t},
 		{"pall", pall_t},
+		{"pop", pop_t},
 		{NULL, NULL}
 	};
 

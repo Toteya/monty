@@ -9,7 +9,7 @@
  */
 void push_t(stack_t **top, int n)
 {
-	stack_t *new;
+	stack_t *new = NULL;
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -19,6 +19,7 @@ void push_t(stack_t **top, int n)
 	}
 	new->n = n;
 	new->next = NULL;
+	new->prev = NULL;
 
 	/* If the stack is not empty */
 	if (*top != NULL)
