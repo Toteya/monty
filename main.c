@@ -27,7 +27,13 @@ int main(int ac, char **av)
 	{
 		line_nr++;
 		op_arg = get_opcode(line);
-
+		if (op_arg == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed.\n");
+			free(line);
+			free(top);
+			exit(EXIT_FAILURE);
+		}
 		status = select_func(&top, op_arg, line_nr);
 		if (status != 0)
 		{

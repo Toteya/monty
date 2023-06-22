@@ -10,14 +10,19 @@
  */
 char *next_line(char *filename, int p)
 {
-	char c1, c2, *buff;
-	/* char *filename = "file.txt"; */
 	static FILE *fp1, *fp2;
+	char c1, c2, *buff;
 	size_t len = 0, i = 0;
 
-
 	if (fp1 == NULL)
+	{
 		fp1 = fopen(filename, "r");
+		if (fp1 == NULL)
+		{
+			fprintf(stderr, "Error: Can't open file %s\n", filename);
+			exit(EXIT_FAILURE);
+		}
+	}
 	if (fp2 == NULL)
 		fp2 = fopen(filename, "r");
 
