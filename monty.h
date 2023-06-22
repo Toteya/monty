@@ -61,6 +61,7 @@ int pop_t(stack_t **top, unsigned int line_nr);
 int swap_t(stack_t **top, unsigned int line_nr);
 int add_t(stack_t **top, unsigned int line_nr);
 int nop_t(stack_t **top, unsigned int line_nr);
+int sub_t(stack_t **top, unsigned int line_nr);
 
 char *next_line(char *filename, int p);
 void free_t(stack_t *top);
