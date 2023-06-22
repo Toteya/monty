@@ -83,6 +83,12 @@ void print_err(int status, unsigned int line_nr)
 			break;
 		case 16:
 			fprintf(stderr, "L%u: can't sub, stack too short\n", line_nr);
+			break;
+		case 17:
+			fprintf(stderr, "L%u: can't div, stack too short\n", line_nr);
+			break;
+		case 170:
+			fprintf(stderr, "L%u: division by zero\n", line_nr);
 	}
 }
 
