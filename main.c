@@ -64,16 +64,16 @@ void print_err(int status, unsigned int line_nr)
 			fprintf(stderr, "L%u: unknown instruction <opcode>\n", line_nr);
 			break;
 		case 11:
-			fprintf(stderr, "L%u: can't pint, stack empty\n", line_nr);
+			fprintf(stderr, "L<%u>: can't pint, stack empty\n", line_nr);
 			break;
 		case 12:
-			fprintf(stderr, "L%u: can't pop an empty stack\n", line_nr);
+			fprintf(stderr, "L<%u>: can't pop an empty stack\n", line_nr);
 			break;
 		case 13:
-			fprintf(stderr, "L%u: can't swap, stack too short\n", line_nr);
+			fprintf(stderr, "L<%u>: can't swap, stack too short\n", line_nr);
 			break;
 		case 14:
-			fprintf(stderr, "L%u: can't add, stack too short\n", line_nr);
+			fprintf(stderr, "L<%u>: can't add, stack too short\n", line_nr);
 	}
 }
 
