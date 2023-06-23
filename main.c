@@ -37,7 +37,7 @@ int main(int ac, char **av)
 		status = select_func(&top, op_arg, line_nr);
 		if (status != 0)
 		{
-			print_err(status, line_nr);
+			print_err(status, line_nr, op_arg->opcode);
 			next_line(filename, 1); /* close the open files */
 			free(line);
 			free_oparg(op_arg);
@@ -56,10 +56,11 @@ int main(int ac, char **av)
  * print_err - Prints a message to STDERR corresponding to the status code
  * @status: Integer status code
  * @line_nr: The current line number of the monty bytecode
+ * @opcode: The monty opcode that failed
  *
  * Return: Nothing.
  */
-void print_err(int status, unsigned int line_nr)
+void print_err(int status, unsigned int line_nr, char *opcode)
 {
 	switch (status)
 	{
@@ -67,7 +68,7 @@ void print_err(int status, unsigned int line_nr)
 			fprintf(stderr, "L%u: usage: push integer\n", line_nr);
 			break;
 		case 2:
-			fprintf(stderr, "L%u: unknown instruction <opcode>\n", line_nr);
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_nr, opcode);
 			break;
 		case 11:
 			fprintf(stderr, "L%u: can't pint, stack empty\n", line_nr);

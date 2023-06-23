@@ -71,7 +71,7 @@ char *_strdup(char *str);
 op_arg_t *get_opcode(char *line);
 int is_numeric(char *str);
 int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr);
-void print_err(int status, unsigned int line_nr);
+void print_err(int status, unsigned int line_nr, char *opcode);
 
 /* Global Variables // Externs */
 
