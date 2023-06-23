@@ -94,6 +94,12 @@ void print_err(int status, unsigned int line_nr, char *opcode)
 		case 18:
 			fprintf(stderr, "L%u: can't mul, stack too short\n", line_nr);
 			break;
+		case 19:
+			fprintf(stderr, "L%u: can't mod, stack too short\n", line_nr);
+			break;
+		case 190:
+			fprintf(stderr, "L%u: division by zero\n", line_nr);
+			break;
 	}
 }
 
