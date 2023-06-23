@@ -22,6 +22,7 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		{"nop", nop_t},
 		{"sub", sub_t},
 		{"div", _div_t},
+		{"mul", mul_t},
 		{NULL, NULL}
 	};
 
