@@ -31,7 +31,7 @@ int main(int ac, char **av)
 		{
 			fprintf(stderr, "Error: malloc failed.\n");
 			free(line);
-			free(top);
+			free_t(top);
 			exit(EXIT_FAILURE);
 		}
 		status = select_func(&top, op_arg, line_nr);
@@ -41,7 +41,7 @@ int main(int ac, char **av)
 			next_line(filename, 1); /* close the open files */
 			free(line);
 			free_oparg(op_arg);
-			free(top);
+			free_t(top);
 			exit(EXIT_FAILURE);
 		}
 		free(line);

@@ -41,12 +41,12 @@ char *next_line(char *filename, int p)
 
 	buff = malloc(sizeof(char) * len + 1);
 	if (buff == NULL)
-		exit(EXIT_FAILURE);
-
-	for (i = 0; i <= len && (c2 = fgetc(fp2)) != '\n'; i++)
 	{
-		buff[i] = c2;
+		fprintf(stderr, "Error: malloc failed.\n");
+		exit(EXIT_FAILURE);
 	}
+	for (i = 0; i <= len && (c2 = fgetc(fp2)) != '\n'; i++)
+		buff[i] = c2;
 	buff[i] = '\0';
 
 	return (buff);
