@@ -27,6 +27,9 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		{NULL, NULL}
 	};
 
+	if (strcmp(op_arg->opcode, "") == 0)
+		return (0);
+
 	if (strcmp(op_arg->opcode, "push") == 0)
 	{
 		if (is_numeric(op_arg->arg)) /* Check if argument is numeric */
