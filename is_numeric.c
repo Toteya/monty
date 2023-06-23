@@ -6,14 +6,23 @@
  */
 int is_numeric(char *str)
 {
+	unsigned int i = 0;
+
 	if (!str)
 		return (0);
 
-	while (*str != '\0')
+	while (str[i] != '\0')
 	{
-		if (*str < '0' || *str > '9')
+		/* Check for minus character - negative numbers */
+		if (i == 0 && str[i] == '-')
+		{
+			i++;
+			continue;
+		}
+		/* Check for non-numeric characters */
+		if (str[i] < '0' || str[i] > '9')
 			return (0);
-		str++;
+		i++;
 	}
 	return (1);
 }
