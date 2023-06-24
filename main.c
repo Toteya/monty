@@ -62,44 +62,32 @@ int main(int ac, char **av)
  */
 void print_err(int status, unsigned int line_nr, char *opcode)
 {
-	switch (status)
-	{
-		case 1:
-			fprintf(stderr, "L%u: usage: push integer\n", line_nr);
-			break;
-		case 2:
-			fprintf(stderr, "L%u: unknown instruction %s\n", line_nr, opcode);
-			break;
-		case 11:
-			fprintf(stderr, "L%u: can't pint, stack empty\n", line_nr);
-			break;
-		case 12:
-			fprintf(stderr, "L%u: can't pop an empty stack\n", line_nr);
-			break;
-		case 13:
-			fprintf(stderr, "L%u: can't swap, stack too short\n", line_nr);
-			break;
-		case 14:
-			fprintf(stderr, "L%u: can't add, stack too short\n", line_nr);
-			break;
-		case 16:
-			fprintf(stderr, "L%u: can't sub, stack too short\n", line_nr);
-			break;
-		case 17:
-			fprintf(stderr, "L%u: can't div, stack too short\n", line_nr);
-			break;
-		case 170:
-			fprintf(stderr, "L%u: division by zero\n", line_nr);
-			break;
-		case 18:
-			fprintf(stderr, "L%u: can't mul, stack too short\n", line_nr);
-			break;
-		case 19:
-			fprintf(stderr, "L%u: can't mod, stack too short\n", line_nr);
-			break;
-		case 190:
-			fprintf(stderr, "L%u: division by zero\n", line_nr);
-			break;
-	}
+	if (status == 1)
+		fprintf(stderr, "L%u: usage: push integer\n", line_nr);
+	else if (status == 2)
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_nr, opcode);
+	else if (status == 11)
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_nr);
+	else if (status == 12)
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_nr);
+	else if (status == 13)
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_nr);
+	else if (status == 14)
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_nr);
+	else if (status == 16)
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_nr);
+	else if (status == 17)
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_nr);
+	else if (status == 170)
+		fprintf(stderr, "L%u: division by zero\n", line_nr);
+	else if (status == 18)
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_nr);
+	else if (status == 19)
+		fprintf(stderr, "L%u: can't mod, stack too short\n", line_nr);
+	else if (status == 190)
+		fprintf(stderr, "L%u: division by zero\n", line_nr);
+	else if (status == 21)
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_nr);
+	else if (status == 210)
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_nr);
 }
-

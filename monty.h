@@ -65,6 +65,7 @@ int sub_t(stack_t **top, unsigned int line_nr);
 int _div_t(stack_t **top, unsigned int line_nr);
 int mul_t(stack_t **top, unsigned int line_nr);
 int mod_t(stack_t **top, unsigned int line_nr);
+int pchar_t(stack_t **top, unsigned int line_nr);
 
 char *next_line(char *filename, int p);
 void free_t(stack_t *top);
