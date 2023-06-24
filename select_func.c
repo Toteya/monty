@@ -25,6 +25,7 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		{"mul", mul_t},
 		{"mod", mod_t},
 		{"pchar", pchar_t},
+		{"pstr", pstr_t},
 		{NULL, NULL}
 	};
 
