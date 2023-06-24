@@ -13,7 +13,7 @@ int pchar_t(stack_t **top, unsigned int line_nr)
 
 	if (*top != NULL)
 	{
-		if ((*top)->n >= 0 && (*top)->n <= 255)
+		if ((*top)->n >= 0 && (*top)->n < 128)
 		{
 			putchar((*top)->n);
 			putchar('\n');
