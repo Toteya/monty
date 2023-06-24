@@ -17,7 +17,7 @@ op_arg_t *get_opcode(char *line)
 
 	token = strtok(line, delim);
 
-	if (token == NULL)
+	if (token == NULL || token[0] == '#')
 		token = "";
 	op_arg->opcode = _strdup(token);
 	if (op_arg->opcode == NULL)

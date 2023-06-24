@@ -40,8 +40,8 @@ typedef struct instruction_s
 
 /**
  * struct op_arg_s - opcode and argument
- * @opcode - The (supposed) opcode
- * @arg - The argument to the opcode
+ * @opcode: The (supposed) opcode
+ * @arg: The argument to the opcode
  *
  * Description: An opcode and its argument read from
  * a monty bytecode file
