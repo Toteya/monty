@@ -12,9 +12,6 @@ int pstr_t(stack_t **top, unsigned int line_nr)
 	stack_t *p;
 	(void) line_nr;
 
-	if (*top == NULL)
-		return (0);
-
 	p = *top;
 	while (p && p->n > 0 && p->n < 128)
 	{
