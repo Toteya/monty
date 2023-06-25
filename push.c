@@ -3,13 +3,15 @@
 /**
  * push_t - Pushes a new element onto a stack_t stack (doubly linked list)
  * @top: Double pointer to the top node of the stack
- * @n: Integer data of the new elemeent
+ * @n: Integer data of the new element
+ * @mode: Mode of operation 1: STACK, 0: QUEUE
  *
  * Return: Address of the new element
  */
-void push_t(stack_t **top, int n)
+void push_t(stack_t **top, int n, int mode)
 {
 	stack_t *new = NULL;
+	(void) mode;
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
