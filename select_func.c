@@ -27,6 +27,7 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		{"pchar", pchar_t},
 		{"pstr", pstr_t},
 		{"rotl", rotl_t},
+		{"rotr", rotr_t},
 		{NULL, NULL}
 	};
 	if (strcmp(op_arg->opcode, "") == 0)

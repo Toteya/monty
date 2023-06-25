@@ -68,6 +68,7 @@ int mod_t(stack_t **top, unsigned int line_nr);
 int pchar_t(stack_t **top, unsigned int line_nr);
 int pstr_t(stack_t **top, unsigned int line_nr);
 int rotl_t(stack_t **top, unsigned int line_nr);
+int rotr_t(stack_t **top, unsigned int line_nr);
 
 char *next_line(char *filename, int p);
 void free_t(stack_t *top);
