@@ -12,13 +12,13 @@ int mul_t(stack_t **top, unsigned int line_nr)
 	stack_t *p;
 	(void) line_nr;
 
-	if (*top == NULL || (*top)->prev == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 		return (18);
 
 	p = *top;
-	*top = (*top)->prev;
+	*top = (*top)->next;
 	(*top)->n *= p->n;
-	(*top)->next = NULL;
+	(*top)->prev = NULL;
 	free(p);
 
 	return (0);

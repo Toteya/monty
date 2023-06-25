@@ -13,8 +13,7 @@ void free_t(stack_t *top)
 	while (top)
 	{
 		p = top;
-		top = top->prev;
-		p->prev = NULL;
+		top = top->next;
 		free(p);
 	}
 }

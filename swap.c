@@ -12,15 +12,15 @@ int swap_t(stack_t **top, unsigned int line_nr)
 	stack_t *p;
 	(void) line_nr;
 
-	if (*top == NULL || (*top)->prev == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 		return (13);
 
 	p = *top;
-	*top = (*top)->prev;
-	(*top)->next = p->next;
-	p->prev = (*top)->prev;
-	(*top)->prev = p;
-	p->next = *top;
+	*top = (*top)->next;
+	(*top)->prev = p->prev;
+	p->next = (*top)->next;
+	(*top)->next = p;
+	p->prev = *top;
 
 	return (0);
 }

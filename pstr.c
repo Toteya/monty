@@ -16,8 +16,7 @@ int pstr_t(stack_t **top, unsigned int line_nr)
 	while (p && p->n > 0 && p->n < 128)
 	{
 		putchar(p->n);
-		p = p->prev;
-
+		p = p->next;
 	}
 	putchar('\n');
 	return (0);

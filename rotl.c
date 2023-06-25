@@ -12,21 +12,21 @@ int rotl_t(stack_t **top, unsigned int line_nr)
 	stack_t *p, *last;
 	(void) line_nr;
 
-	if (*top == NULL || (*top)->prev == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 		return (0);
 
 	last = *top;
-	p = (*top)->prev;
-	*top = (*top)->prev;
-	(*top)->next = NULL;
+	p = (*top)->next;
+	*top = (*top)->next;
+	(*top)->prev = NULL;
 
-	while (p->prev != NULL)
+	while (p->next != NULL)
 	{
-		p = p->prev;
+		p = p->next;
 	}
-	p->prev = last;
-	last->next = p;
-	last->prev = NULL;
+	p->next = last;
+	last->prev = p;
+	last->next = NULL;
 
 	return (0);
 }

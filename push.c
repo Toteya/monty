@@ -24,8 +24,8 @@ void push_t(stack_t **top, int n)
 	/* If the stack is not empty */
 	if (*top != NULL)
 	{
-		new->prev = *top;
-		(*top)->next = new;
+		new->next = *top;
+		(*top)->prev = new;
 	}
 	*top = new;
 }

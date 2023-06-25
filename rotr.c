@@ -13,21 +13,21 @@ int rotr_t(stack_t **top, unsigned int line_nr)
 	stack_t *p;
 	(void) line_nr;
 
-	if (*top == NULL || (*top)->prev == NULL)
+	if (*top == NULL || (*top)->next == NULL)
 		return (0);
 
 	p = *top;
 	/* Find bottom element */
-	while (p->prev != NULL)
+	while (p->next != NULL)
 	{
-		p = p->prev;
+		p = p->next;
 	}
 
 	/* Re-arrange element positions, bring bottom element to the top */
-	(*top)->next = p;
-	p->prev = *top;
-	(p->next)->prev = NULL;
-	p->next = NULL;
+	(*top)->prev = p;
+	p->next = *top;
+	(p->prev)->next = NULL;
+	p->prev = NULL;
 	*top = p;
 
 	return (0);

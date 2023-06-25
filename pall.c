@@ -20,7 +20,7 @@ int pall_t(stack_t **top, unsigned int line_nr)
 	while (p != NULL)
 	{
 		printf("%d\n", p->n);
-		p = p->prev;
+		p = p->next;
 	}
 
 	return (0);

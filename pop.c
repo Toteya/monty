@@ -16,9 +16,9 @@ int pop_t(stack_t **top, unsigned int line_nr)
 		return (12);
 
 	p = *top;
-	*top = (*top)->prev;
+	*top = (*top)->next;
 	if (*top != NULL)
-		(*top)->next = NULL;
+		(*top)->prev = NULL;
 	free(p);
 
 	return (0);
