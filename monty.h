@@ -39,7 +39,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	int (*f)(stack_t **stack, unsigned int line_number);
+	int (*f)(stack_t **stack);
 } instruction_t;
 
 /**
@@ -59,20 +59,20 @@ typedef struct op_arg_s
 
 /* Function Prototypes */
 void push_t(stack_t **top, int n, int mode);
-int pall_t(stack_t **top, unsigned int line_nr);
-int pint_t(stack_t **top, unsigned int line_nr);
-int pop_t(stack_t **top, unsigned int line_nr);
-int swap_t(stack_t **top, unsigned int line_nr);
-int add_t(stack_t **top, unsigned int line_nr);
-int nop_t(stack_t **top, unsigned int line_nr);
-int sub_t(stack_t **top, unsigned int line_nr);
-int _div_t(stack_t **top, unsigned int line_nr);
-int mul_t(stack_t **top, unsigned int line_nr);
-int mod_t(stack_t **top, unsigned int line_nr);
-int pchar_t(stack_t **top, unsigned int line_nr);
-int pstr_t(stack_t **top, unsigned int line_nr);
-int rotl_t(stack_t **top, unsigned int line_nr);
-int rotr_t(stack_t **top, unsigned int line_nr);
+int pall_t(stack_t **top);
+int pint_t(stack_t **top);
+int pop_t(stack_t **top);
+int swap_t(stack_t **top);
+int add_t(stack_t **top);
+int nop_t(stack_t **top);
+int sub_t(stack_t **top);
+int _div_t(stack_t **top);
+int mul_t(stack_t **top);
+int mod_t(stack_t **top);
+int pchar_t(stack_t **top);
+int pstr_t(stack_t **top);
+int rotl_t(stack_t **top);
+int rotr_t(stack_t **top);
 
 char *next_line(char *filename, int p);
 void free_t(stack_t *top);
@@ -80,7 +80,7 @@ void free_oparg(op_arg_t *op_arg);
 char *_strdup(char *str);
 op_arg_t *get_opcode(char *line);
 int is_numeric(char *str);
-int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr, int *mode);
+int select_func(stack_t **top, op_arg_t *op_arg, int *mode);
 void print_err(int status, unsigned int line_nr, char *opcode);
 
 /* Global Variables // Externs */

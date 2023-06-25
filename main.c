@@ -34,7 +34,7 @@ int main(int ac, char **av)
 			free_t(top);
 			exit(EXIT_FAILURE);
 		}
-		status = select_func(&top, op_arg, line_nr, &mode);
+		status = select_func(&top, op_arg, &mode);
 		if (status != 0)
 		{
 			print_err(status, line_nr, op_arg->opcode);

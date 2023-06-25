@@ -3,14 +3,12 @@
 /**
  * rotl_t - Rotates the stack
  * @top: Double pointer to the top of th stack
- * @line_nr: Current line number of the monty bytecode
  *
  * Return: Always 0.
  */
-int rotl_t(stack_t **top, unsigned int line_nr)
+int rotl_t(stack_t **top)
 {
 	stack_t *p, *last;
-	(void) line_nr;
 
 	if (*top == NULL || (*top)->next == NULL)
 		return (0);
