@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	unsigned int line_nr = 0;
 	stack_t *top = NULL;
 	op_arg_t *op_arg = NULL;
-	int status = 0;
+	int status = 0, mode = STACK_MODE;
 
 	if (ac != 2)
 	{
@@ -34,7 +34,7 @@ int main(int ac, char **av)
 			free_t(top);
 			exit(EXIT_FAILURE);
 		}
-		status = select_func(&top, op_arg, line_nr);
+		status = select_func(&top, op_arg, line_nr, &mode);
 		if (status != 0)
 		{
 			print_err(status, line_nr, op_arg->opcode);

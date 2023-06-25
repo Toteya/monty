@@ -6,8 +6,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* Data Structures */
+/* MACROS */
+#define STACK_MODE 1
+#define QUEUE_MODE 0
 
+
+/* Data Structures */
 /**
  * struct stack_s - doubly linke list representation of a stack (or queue)
  * @n: integer
@@ -54,7 +58,7 @@ typedef struct op_arg_s
 
 
 /* Function Prototypes */
-void push_t(stack_t **top, int n);
+void push_t(stack_t **top, int n, int mode);
 int pall_t(stack_t **top, unsigned int line_nr);
 int pint_t(stack_t **top, unsigned int line_nr);
 int pop_t(stack_t **top, unsigned int line_nr);
@@ -76,11 +80,10 @@ void free_oparg(op_arg_t *op_arg);
 char *_strdup(char *str);
 op_arg_t *get_opcode(char *line);
 int is_numeric(char *str);
-int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr);
+int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr, int *mode);
 void print_err(int status, unsigned int line_nr, char *opcode);
 
 /* Global Variables // Externs */
-
 extern instruction_t instructs[];
 
 #endif /* LISTS_H */
