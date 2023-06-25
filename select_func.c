@@ -26,9 +26,9 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		{"mod", mod_t},
 		{"pchar", pchar_t},
 		{"pstr", pstr_t},
+		{"rotl", rotl_t},
 		{NULL, NULL}
 	};
-
 	if (strcmp(op_arg->opcode, "") == 0)
 		return (0);
 
@@ -44,9 +44,7 @@ int select_func(stack_t **top, op_arg_t *op_arg, unsigned int line_nr)
 		for (i = 0; instructs[i].opcode != NULL; i++)
 		{
 			if (strcmp(op_arg->opcode, instructs[i].opcode) == 0)
-			{
 				return (instructs[i].f(top, line_nr));
-			}
 		}
 		if (instructs[i].opcode == NULL)
 			return (2);
