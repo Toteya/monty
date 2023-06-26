@@ -6,13 +6,13 @@
 < ----
 > -
 ]
- minus 48 from p0
+	 minus 48 from p0
 ++++++++++++
 [
 << ----
 >> -
 ]
-.	multiply p0 and p1
+	multiply p0 and p1
 <<
 [
 -
